@@ -57,5 +57,16 @@
     app.get('/view',(req,res)=>{
         res.render("show",{ tasks });
     })
+    app.get('/taskview/:id', (req,res) =>{
+        const taskId = parseInt(req.params.id);
+        const task = tasks.find(t => t.id === taskId);
+
+        if(!task){
+            return res.status(404).send("Task not found...");
+        }
+
+        res.render('taskdetail',{ task });
+    })
+    
 
     app.listen(2004);
