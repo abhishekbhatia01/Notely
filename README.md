@@ -8,6 +8,8 @@ Notely is a simple and lightweight note-taking app built using EJS, HTML, CSS, a
 ✔️ Lightweight & Fast – No database required; stores data in a JSON file.<br>
 ✔️ User-Friendly Interface – Clean and responsive UI.  
 
+
+
 💡 Why Use Notely?
 Simple and easy to use.
 No need for a database—stores notes in a JSON file.
