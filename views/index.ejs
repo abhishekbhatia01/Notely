@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notely</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: white;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1F1B24;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(255, 107, 107, 0.3);
+            z-index: 1000;
+            backdrop-filter: blur(50%);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #E0AFA0;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FF6B6B;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #1F1B24;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                padding: 10px;
+                box-shadow: 0px 4px 10px rgba(255, 107, 107, 0.3);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }    
+        .start1{
+            width: 600px;
+            text-align: center;
+            margin-top: 80px; /* Adjust this value based on your navbar's height */
+            transform: translateY(10px);
+            animation: floating 5s ease-out infinite;
+            animation-delay: 2s;
+        }
+       
+        @keyframes floating{
+            0%,100%{
+                transform: translateY(10px);
+            }
+            50%{
+                transform: translateY(0);
+            }
+        }
+        .start1 h1{
+            color: #E0AFA0;
+        }
+        .start1 p{
+            padding-top: 20px;
+            color: #A1A1A1;
+        } 
+        
+        @media(max-width: 610px){
+            .start1{
+                width: 500px;
+            }
+        }
+        @media(max-width: 500px){
+            .start1{
+                width: 400px;  
+            }
+        }
+        @media(max-width: 410px){
+            .start1{
+                width: 300px;               
+            }
+            .start1 p{
+                font-size: 15px;
+            }
+        }
+        .animated{
+            opacity: 0;
+            transform: translateY(-80px);
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn{
+            0%{
+                opacity: 0;
+                transform: translateY(-80px);
+            }
+            
+            100%{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        button {
+            background-color: #FF6B6B;  /* Vibrant red for attention */
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(255, 107, 107, 0.3);
+            margin-top: 30px;
+        }
+
+        button:hover {
+            background-color: #FF8787; /* Lighter red on hover */
+            box-shadow: 0px 6px 15px rgba(255, 107, 107, 0.5);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            background-color: #E05858;
+            transform: translateY(0);
+        }
+        .features{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+            margin-top: 150px;
+        
+        }
+        
+        .box{
+            padding: 40px;
+            background-color: #1F2937 ;
+            border-radius: 10px;
+            border: none;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeIn2 1.5s ease-out forwards;
+        }
+     
+        @media(max-width:370px){
+            .box{
+                font-size: 12px;
+            }
+        }
+        @media(max-width:370px){
+            .box{
+                font-size: 10px;
+            }
+        }
+        @keyframes fadeIn2{
+            0%{
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            
+            100%{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        footer{
+            background-color: #1F1B24;
+            width: 100%;
+            margin-top: 140px;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" style="text-decoration: none;"><div class="logo">Notely </div></a>
+        <ul class="nav-links">
+            <li><a href="/task">Add New</a></li>
+            <li><a href="#">Notes</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+<br>
+    <div class="start1">
+        <h1 class="animated">Welcome to Notely</h1>
+        <p>Effortless note-taking, seamless organization, and instant access—Notely simplifies the way you capture and manage your ideas, anytime, anywhere.</p>
+        <button onclick="window.location.href='/task'">Get started</button>
+    </div>
+
+    <div class="features">
+        <div class="box">
+            <i class="fa-solid fa-lock" style="font-size: 20px;"></i> <br>
+            <span style="font-size: 25px; font-weight: 500; color: #E05858;">Secure</span>
+            <p style="font-weight: 100; color: #A1A1A1;">Encrypted storage for user privacy.</p>
+        </div>
+        <div class="box">
+            <i class="fa-solid fa-cloud" style="font-size: 20px;"></i> <br>
+            <span style="font-size: 25px; font-weight: 500; color: #E05858;">Cloud Sync </span>
+            <p style="font-weight: 100; color: #A1A1A1;">Sync notes across multiple devices.</p>
+        </div>
+        <div class="box" style="padding: 40px 20px;">
+            <i class="fa-solid fa-laptop-code" style="font-size: 20px;"></i> <br>
+            <span style="font-size: 25px; font-weight: 500; color: #E05858;">Responsive Design</span>
+            <p style="font-weight: 100; color: #A1A1A1;">Mobile-friendly navigation with a toggle.</p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Notely. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

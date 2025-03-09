@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notely</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: white;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1F1B24;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(255, 107, 107, 0.3);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #E0AFA0;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FF6B6B;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #1F1B24;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                padding: 10px;
+                box-shadow: 0px 4px 10px rgba(255, 107, 107, 0.3);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        /* Notes Section */
+        h1 {
+            margin-bottom: 80px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #E0AFA0;
+            opacity: 0;
+            transform: translateY(-40px);
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn{
+            0%{
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            100%{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .task {
+            background-color: #1F1B24;
+            padding: 40px;
+            width: 400px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0px 8px 20px rgba(255, 107, 107, 0.3);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+        }
+
+        form input {
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid #E0AFA0;
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            color: white;
+            outline: none;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input::placeholder {
+            color: #A1A1A1;
+        }
+
+        form input:focus {
+            border-bottom: 2px solid #FF6B6B;
+        }
+
+        input[type="submit"] {
+            background-color: #FF6B6B;
+            color: white;
+            border: none;
+            padding: 14px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FF8787;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #FF6B6B;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+
+        .light-mode .navbar,
+        .light-mode .task {
+            background-color: #f0f0f0;
+            color: black;
+        }
+
+        .light-mode .logo,
+        .light-mode .nav-links a {
+            color: black;
+        }
+
+        .light-mode form input {
+            color: black;
+            border-bottom: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" style="text-decoration: none;"><div class="logo">Notely </div></a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Notes</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Toggle Theme</button>
+
+    <h1>Add Notes</h1>
+    <div class="task">
+        <form action="/tasks" method="post">
+            <input type="text" name="title" placeholder="Title" required><br>
+            <input type="text" name="description" placeholder="Description" required><br>
+            <input type="submit" value="Add Note">
+        </form>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("light-mode");
+        }
+
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
