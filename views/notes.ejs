@@ -140,7 +140,26 @@
             font-size: 16px;
             transition: all 0.3s ease-in-out;
         }
-
+        @media(max-width:418px){
+            .task{
+                width: 360px;
+            }
+        }
+        @media(max-width:390px){
+            .task{
+                width: 340px;
+            }
+        }
+        @media(max-width:360px){
+            .task{
+                width: 320px;
+            }
+        }
+        @media(max-width:340px){
+            .task{
+                width: 290px;
+            }
+        }
         input::placeholder {
             color: #A1A1A1;
         }
@@ -161,7 +180,7 @@
             font-weight: 600;
             transition: 0.3s;
         }
-
+        
         input[type="submit"]:hover {
             background-color: #FF8787;
         }
@@ -200,6 +219,11 @@
             color: black;
             border-bottom: 2px solid black;
         }
+        .task a{
+            text-decoration: none;
+            color: #A1A1A1;
+            font-size: 17px;
+        }
     </style>
 </head>
 <body>
@@ -207,7 +231,7 @@
         <a href="/" style="text-decoration: none;"><div class="logo">Notely </div></a>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
-            <li><a href="#">Notes</a></li>
+            <li><a href="/view">Notes</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
@@ -222,6 +246,7 @@
             <input type="text" name="title" placeholder="Title" required><br>
             <input type="text" name="description" placeholder="Description" required><br>
             <input type="submit" value="Add Note">
+            <a href="/view">View Notes</a>
         </form>
     </div>
 

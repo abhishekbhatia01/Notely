@@ -25,9 +25,9 @@
         }
     }
     app.get('/task', (req, res) => {
-        setTimeout(() => {
+        // setTimeout(() => {x
             res.render("notes"); 
-        }, 1000); 
+        // }, 1000); 
     });
     
     app.post('/tasks', (req,res) =>{
@@ -51,8 +51,11 @@
         tasks.push(new_task);
         console.log(tasks);
         fs.writeFileSync(taskFile, JSON.stringify(tasks, null, 2));
-        res.redirect('/task');
+        res.redirect('/view');
     });
-
+    
+    app.get('/view',(req,res)=>{
+        res.render("show",{ tasks });
+    })
 
     app.listen(2004);
