@@ -4,9 +4,9 @@ Notely is a simple and lightweight note-taking app built using EJS, HTML, CSS, a
 🚀 Features
 ✔️ Create Notes – Quickly add new notes with a title and content.
 ✔️ Edit Notes – Modify existing notes effortlessly.
-✔️ Delete Notes – Remove unwanted notes with a single click.
-✔️ Lightweight & Fast – No database required; stores data in a JSON file.
-✔️ User-Friendly Interface – Clean and responsive UI.  <br>
+✔️ Delete Notes – Remove unwanted notes with a single click.<br>
+✔️ Lightweight & Fast – No database required; stores data in a JSON file.<br>
+✔️ User-Friendly Interface – Clean and responsive UI.  
 
 💡 Why Use Notely?
 Simple and easy to use.
