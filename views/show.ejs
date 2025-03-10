@@ -1,186 +1,217 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notely</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notely</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
-
-        body {
-            background-color: #121212;
-            color: white;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-        }
-         /* Navbar */
-         .navbar {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #1F1B24;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0px 4px 10px rgba(255, 107, 107, 0.3);
-            z-index: 1000;
-            backdrop-filter: blur(50%);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #FF6B6B;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav-links li {
-            margin: 0 15px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #FF6B6B;
-        }
-
-        .menu-icon {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background-color: #1F1B24;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 200px;
-                padding: 10px;
-                box-shadow: 0px 4px 10px rgba(255, 107, 107, 0.3);
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Poppins", sans-serif;
             }
 
-            .nav-links.active {
+            body {
+                background-color: #121212;
+                color: white;
+                transition: 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            /* Navbar */
+            .navbar {
+                position: sticky;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: #1F1B24;
+                padding: 15px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0px 4px 10px rgba(255, 107, 107, 0.3);
+                z-index: 1000;
+                backdrop-filter: blur(50%);
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #FF6B6B;
+            }
+
+            .nav-links {
+                list-style: none;
                 display: flex;
             }
 
-            .menu-icon {
-                display: block;
+            .nav-links li {
+                margin: 0 15px;
             }
-        }    
-        .no1{
-            /* margin-top: 100px; */
-            margin: 50px 0 100px 0;
-            color: #E0AFA0;
-        }
-        .notes{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            text-align: center;
-        }
-        .box{
-            padding: 50px 50px 20px 50px;
-            background-color: #1F2937 ;
-            border-radius: 10px;
-            border: none;
-            text-align: center;
-            color: #E0AFA0;
-        }
-        .box button{
-            margin-top: 40px;
-            
-        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: white;
+                font-size: 16px;
+                transition: 0.3s;
+            }
+
+            .nav-links a:hover {
+                color: #FF6B6B;
+            }
+
+            .menu-icon {
+                display: none;
+                font-size: 24px;
+                cursor: pointer;
+                color: white;
+            }
+
+            @media (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                    flex-direction: column;
+                    background-color: #1F1B24;
+                    position: absolute;
+                    top: 60px;
+                    right: 0;
+                    width: 200px;
+                    padding: 10px;
+                    box-shadow: 0px 4px 10px rgba(255, 107, 107, 0.3);
+                }
+
+                .nav-links.active {
+                    display: flex;
+                }
+
+                .menu-icon {
+                    display: block;
+                }
+            }    
+            .no1{
+                /* margin-top: 100px; */
+                margin: 50px 0 100px 0;
+                color: #E0AFA0;
+            }
+            .notes{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+                justify-content: center;
+                text-align: center;
+            }
+            .box{
+                padding: 50px 50px 20px 50px;
+                background-color: #1F2937 ;
+                border-radius: 10px;
+                border: none;
+                text-align: center;
+                color: #E0AFA0;
+            }
+            .box button{
+                margin-top: 40px;
+                
+            }
 
 
-        .button-54 {
-            font-family: "Open Sans", sans-serif;
-            font-size: 14px;
-            text-transform: uppercase;
-            color: #000;
-            cursor: pointer;
-            border: 2px solid;
-            padding: 6px 12px;
-            box-shadow: 3px 3px 0px #000;
-            background-color: #E0AFA0;
-            transition: all 0.2s ease-in-out;
-        }
+            .button-54 {
+                font-family: "Open Sans", sans-serif;
+                font-size: 14px;
+                text-transform: uppercase;
+                color: #000;
+                cursor: pointer;
+                border: 2px solid;
+                padding: 6px 12px;
+                box-shadow: 3px 3px 0px #000;
+                background-color: #E0AFA0;
+                transition: all 0.2s ease-in-out;
+            }
 
-        .button-54:active {
-            box-shadow: none;
-            transform: translate(3px, 3px);
-        }
+            .button-54:active {
+                box-shadow: none;
+                transform: translate(3px, 3px);
+            }
 
 
-        @media (min-width: 768px) {
-        .button-54 {
-            padding: 0.25em 0.75em;
-        }
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <a href="/" style="text-decoration: none;"><div class="logo">Notely </div></a>
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/task">Add New</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    </nav>
-    
-    <h1 class="no1">📌 Your Notes, Anytime, Anywhere</h1>
-    <div class="notes">
-       
-        <% if(tasks.length == 0) { %>
-            <p>No notes available.</p>
-        <% } else { %>
-            <% tasks.forEach(task => { %>
-                <div class="box">
-                    <h3><%= task.title %></h3>
-                    <div class="date" style="color: rgb(163, 167, 171);">📅 <%= task.date %></div>
-                    <button class="button-54" role="button" onclick="window.location.href='/taskview/<%= task.id %>'">View</button>
-                    <button class="button-54" role="button" >Edit</button>
-                    <button class="button-54" role="button" onclick="window.location.href='/delnote/<%= task.id %>'">Delete</button>
+            @media (min-width: 768px) {
+            .button-54 {
+                padding: 0.25em 0.75em;
+            }
+            }
+            .back-btn {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #FF6B6B;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+
+            .back-btn:hover {
+                background-color: #E55E5E;
+            }
+            .empty-notes{
+                padding: 50px;
+            }
+            .empty-notes h2{
+                color:#E0AFA0;
+            }
+            .empty-notes p{
+                color:#A1A1A1;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="/" style="text-decoration: none;"><div class="logo">Notely </div></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/task">Add New</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        </nav>
+        
+        <h1 class="no1">📌 Your Notes, Anytime, Anywhere</h1>
+        <div class="notes">
+        
+            <% if(tasks.length == 0) { %>
+                <div class="empty-notes">
+                    <h2>No notes available.</h2>
+                    <p>Start capturing your thoughts now.</p>
+                    <a href="/task" class="back-btn">Create a note</a>
                 </div>
-            <% }) %> 
-        <% } %>
-    </div>
+
+            <% } else { %>
+                <% tasks.forEach(task => { %>
+                    <div class="box">
+                        <h3><%= task.title %></h3>
+                        <div class="date" style="color: rgb(163, 167, 171);">📅 <%= task.date %></div>
+                        <button class="button-54" role="button" onclick="window.location.href='/taskview/<%= task.id %>'">View</button>
+                        <button class="button-54" role="button" >Edit</button>
+                        <button class="button-54" role="button" onclick="window.location.href='/delnote/<%= task.id %>'">Delete</button>
+                    </div>
+                <% }) %> 
+            <% } %>
+        </div>
 
 
-    <script>
-         function toggleMenu() {
-            document.querySelector(".nav-links").classList.toggle("active");
-        }
-    </script>
-</body>
-</html>
+        <script>
+            function toggleMenu() {
+                document.querySelector(".nav-links").classList.toggle("active");
+            }
+        </script>
+    </body>
+    </html>

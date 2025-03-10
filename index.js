@@ -66,7 +66,7 @@
         }
 
         res.render('taskdetail',{ task });
-    })
+    });
 
     app.get('/delnote/:id', (req,res)=>{
         tasks = tasks.filter(task => task.id != req.params.id);
@@ -74,7 +74,7 @@
         res.redirect('/view')
     });
 
-    app.get()
+    
     
 
     app.listen(2004);
