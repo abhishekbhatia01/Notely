@@ -25,7 +25,7 @@
         }
     }
     app.get('/task', (req, res) => {
-        // setTimeout(() => {x
+        // setTimeout(() => {
             res.render("notes"); 
         // }, 1000); 
     });
@@ -64,8 +64,9 @@
         if(!task){
             return res.status(404).send("Task not found...");
         }
-
-        res.render('taskdetail',{ task });
+        setTimeout(() =>{
+            res.render('taskdetail',{ task });
+        },1000);
     });
 
     app.get('/edit/:id', (req,res)=>{
