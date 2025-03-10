@@ -74,7 +74,7 @@
         res.redirect('/view')
     });
 
-    app.get()
+    
     
 
     app.listen(2004);
