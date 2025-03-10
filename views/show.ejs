@@ -200,7 +200,7 @@
                         <h3><%= task.title %></h3>
                         <div class="date" style="color: rgb(163, 167, 171);">📅 <%= task.date %></div>
                         <button class="button-54" role="button" onclick="window.location.href='/taskview/<%= task.id %>'">View</button>
-                        <button class="button-54" role="button" >Edit</button>
+                        <button class="button-54" role="button" onclick="window.location.href='/edit/<%= task.id%>'">Edit</button>
                         <button class="button-54" role="button" onclick="window.location.href='/delnote/<%= task.id %>'">Delete</button>
                     </div>
                 <% }) %> 

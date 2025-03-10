@@ -68,6 +68,36 @@
         res.render('taskdetail',{ task });
     });
 
+    app.get('/edit/:id', (req,res)=>{
+        const taskId = parseInt(req.params.id);
+        const task = tasks.find(t => t.id === taskId);
+
+        if(!task){
+            return res.status(404).send("Task not found...");
+        }
+
+        res.render('edit',{ task });
+    });
+
+    app.post('/update/:id', (req,res)=>{
+        const taskId = parseInt(req.params.id, 10);
+
+        if(isNaN(taskId)){
+            return res.status(400).send("Invalid ID");
+        }
+
+        const taskIndex = tasks.findIndex(t => t.id === taskId);
+
+        if(taskIndex === -1){
+            return res.status(404).send("Task not found...");
+        }
+
+        tasks[taskIndex].title = req.body.title;
+        tasks[taskIndex].description = req.body.description;
+
+        res.redirect('/view');
+    });
+
     app.get('/delnote/:id', (req,res)=>{
         tasks = tasks.filter(task => task.id != req.params.id);
         fs.writeFileSync(taskFile, JSON.stringify(tasks, null, 2));
