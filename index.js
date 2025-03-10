@@ -8,12 +8,18 @@
     app.use(express.urlencoded({extended : true}));
     app.use(express.static(path.join(__dirname,'public')));
     const taskFile = path.join(__dirname,"task.json");
+    const taskUserid = path.join(__dirname,"users.json");
 
 
     app.get('/', (req,res)=>{
         setTimeout(()=>{
             res.render("index");
         },2000);
+    });
+
+    // after login
+    app.get('/ind2',(req,res)=>{
+        res.render("index2");
     });
 
 
@@ -105,7 +111,52 @@
         res.redirect('/view')
     });
 
-    
-    
+    app.get('/signup', (req,res)=>{
+        res.render("signup", { message :"" });        
+    });
+
+
+    let taskUser = [];
+    if(fs.existsSync(taskUserid)){
+        taskUser = JSON.parse(fs.readFileSync(taskUserid, "utf-8"));
+    }
+    app.post('/signup1', (req,res)=>{
+        const{name, username, email, phone, password} = req.body;
+
+        if (taskUser.find(user => user.username === username)) {
+            return res.render("signup", { message: "User already exists..." });
+        }
+        
+
+        const new_user = {
+            name: req.body.name,
+            username: req.body.username, 
+            email: req.body.email,
+            phone: req.body.phone,
+            password: req.body.password
+        };
+        
+        taskUser.push(new_user);
+
+        fs.writeFileSync(taskUserid, JSON.stringify(taskUser, null, 2));
+
+        res.render("login", { message : "Signup sucessful!" });
+    })
+
+    app.get('/login', (req,res)=>{
+        res.render("login",{ message :"" });        
+    });
+
+    app.post("/login",(req,res)=>{
+        const{login, password} = req.body;
+
+        const user = taskUser.find(user => user.username === login || user.email === login);
+
+        if(!user || user.password !== password){
+            return res.render("login", { message : "Invalid username or password" });
+        }
+
+        res.redirect('/ind2');
+    });
 
     app.listen(2004);

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notely</title>
+    <link rel="icon" href="/images/download-removebg-preview.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: white;
+        }
+
+        .login {
+            background-color: #1F2937;
+            padding: 60px;  /* Increased padding */
+            border-radius: 12px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            width: 500px;  /* Increased width */
+        }
+
+        .login h2 {
+            margin-bottom: 25px;
+            font-size: 32px;
+            color: #FF6B6B;
+        }
+
+        .login input {
+            width: 100%;
+            padding: 16px;  /* Increased padding for bigger input fields */
+            margin: 15px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+
+        input[type="text"], input[type="password"] {
+            background-color: #2D3748;
+            color: white;
+        }
+
+        input::placeholder {
+            color: #A1A1A1;
+        }
+
+        input[type="submit"] {
+            background-color: #FF6B6B;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 20px;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FF8787;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 550px) {
+            .login {
+                width: 90%;
+                padding: 50px;
+            }
+        }
+        p{
+            color: #A1A1A1;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        a{
+            margin-top: 10px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #FF6B6B;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <input type="text" name="login" placeholder="Username or Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+
+            <% if (typeof message !== "undefined" && message) { %>
+                <p style="color: red;"><%= message %></p>
+            <% } %>
+        </form>
+        <p>Don't have an account? <a href="/signup">Signup</a></p>
+    </div>
+</body>
+</html>
