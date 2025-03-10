@@ -67,6 +67,14 @@
 
         res.render('taskdetail',{ task });
     })
+
+    app.get('/delnote/:id', (req,res)=>{
+        tasks = tasks.filter(task => task.id != req.params.id);
+        fs.writeFileSync(taskFile, JSON.stringify(tasks, null, 2));
+        res.redirect('/view')
+    });
+
+    app.get()
     
 
     app.listen(2004);
