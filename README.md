@@ -1,6 +1,8 @@
 # Notely  
 Notely is a simple and lightweight note-taking app built using **EJS, HTML, CSS, and Node.js**. It provides a user-friendly interface for creating, editing, and deleting notes, making it a great tool for organizing thoughts, tasks, and ideas.  
 
+Live Demo :- https://notely-34na.onrender.com
+
 🚀 **Features**<br>  
 ✔️ **Create Notes** – Quickly add new notes with a title and content.<br>  
 ✔️ **Edit Notes** – Modify existing notes effortlessly.<br>  
